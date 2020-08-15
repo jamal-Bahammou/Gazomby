@@ -3,6 +3,7 @@ import { createStackNavigator } from '@react-navigation/stack'
 
 import Home from '../screens/Home'
 import Details from '../screens/Details'
+import Header from '../components/Header'
 
 const HomeStack = () => {
     
@@ -14,9 +15,8 @@ const HomeStack = () => {
                 name="Home"
                 component={Home}
                 options={{
-                title: 'Gazomby Game Zone',
-                headerTintColor: '#444',
-                headerStyle: { backgroundColor: '#CCC', height: 90 }
+                headerTitle: () => <Header title='Gazomby Game Zone' />,
+                headerStyle: { backgroundColor: '#3E5858', height: 90 }
                 }}
             />
             <Stack.Screen
@@ -24,8 +24,8 @@ const HomeStack = () => {
                 component={Details}
                 options={{
                 title: 'Detail Game Zone',
-                headerTintColor: '#444',
-                headerStyle: { backgroundColor: '#CCC', height: 90 }
+                headerTintColor: '#eee',
+                headerStyle: { backgroundColor: '#3E5858', height: 90 }
                 }}
             />
         </Stack.Navigator>
