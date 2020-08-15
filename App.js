@@ -1,9 +1,12 @@
 import React from 'react'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
+import { createDrawerNavigator } from '@react-navigation/drawer'
 
 import { AppLoading } from 'expo'
 import { useFonts } from 'expo-font'
+
+import HomeStack from './routes/HomeStack'
 
 import Home from './screens/Home'
 import Details from './screens/Details'
@@ -18,17 +21,17 @@ const App = () => {
 
   console.log(fontsLoaded)
 
-  const Stack = createStackNavigator()
+  const Drawer = createDrawerNavigator()
 
   return (
     !fontsLoaded
     ? <AppLoading />
     : (
       <NavigationContainer>
-        <Stack.Navigator>
-          <Stack.Screen name="Home" component={Home} />
-          <Stack.Screen name="Details" component={Details} />
-        </Stack.Navigator>
+        <Drawer.Navigator initialRouteName='Home'>
+          <Drawer.Screen name='Home' component={HomeStack} />
+          <Drawer.Screen name='About' component={About} />
+        </Drawer.Navigator>
       </NavigationContainer>
     )
   );

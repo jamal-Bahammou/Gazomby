@@ -2,10 +2,15 @@ import React from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 import { globalStyles } from '../styles/global'
 
-const Details = () => {
+const Details = ({ navigation, route }) => {
+    
+    const { body, rating, title } = route.params;
+
     return (
         <View style={globalStyles.container}>
-            <Text>Details sceen</Text>
+            <Text>{ title }</Text>
+            <Text>{ body }</Text>
+            <Text>{ rating }</Text>
         </View>
     );
 }
