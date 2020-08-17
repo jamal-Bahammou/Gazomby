@@ -53,7 +53,7 @@ const ReviewForm = ({ addReview }) => {
                         />
                         <Text style={globalStyles.errorText}>{ props.touched.rating && props.errors.rating }</Text>
 
-                        <Button color='maroon' title="Submit" onPress={props.handleSubmit} /> 
+                        <Button color='#3E5858' title="Submit" onPress={props.handleSubmit} /> 
                     
                     </View>
                 ) }

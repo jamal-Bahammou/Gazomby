@@ -3,8 +3,7 @@ import { StyleSheet } from 'react-native'
 export const globalStyles = StyleSheet.create({
     container: {
         flex: 1,
-        padding: 20,
-        // backgroundColor: '#fff'
+        padding: 20
     },
     titleText: {
         fontFamily: 'Montserrat-bold',
@@ -12,7 +11,8 @@ export const globalStyles = StyleSheet.create({
         color: '#333'
     },
     paragraph: {
-        marginVertical: 8,
+        fontSize: 15,
+        marginVertical: 7,
         lineHeight: 20
     },
     input: {
@@ -20,7 +20,6 @@ export const globalStyles = StyleSheet.create({
         borderColor: '#ddd',
         paddingVertical: 6,
         paddingHorizontal: 12,
-        // marginBottom: 12,
         fontSize: 15,
         borderRadius: 6
     },
