@@ -1,11 +1,13 @@
 import React, { useState } from 'react'
-import { StyleSheet, View, Text, FlatList, TouchableOpacity, Modal } from 'react-native'
+import { StyleSheet, View, Text, FlatList, Modal, TouchableOpacity, TouchableWithoutFeedback, Keyboard } from 'react-native'
 import { MaterialIcons } from '@expo/vector-icons'
 import { globalStyles } from '../styles/global'
 
 import Card from '../components/Card'
+import ReviewForm from '../screens/ReviewForm'
 
 const Home = ({ navigation }) => {
+
     const [modalOpen, setModalOpen] = useState(false)
     const [reviews, setReviews] = useState([
         { title: 'Zelda, Breath of Fresh Air', rating: 5, body: 'lorem ipsum', key: '1' },
@@ -13,15 +15,23 @@ const Home = ({ navigation }) => {
         { title: 'Not So "Final" Fantasy', rating: 3, body: 'lorem ipsum', key: '3' },
     ])
 
+    const addReview = review => {
+        review.key = Math.random().toString();
+        setReviews( currentReviews => [ review, ...currentReviews ] );
+        setModalOpen(false);
+    }
+
     return (
         <View style={globalStyles.container}>
 
             <MaterialIcons style={styles.modalToggle} name='add' size={24} onPress={() => setModalOpen(true)} />
             <Modal visible={modalOpen} animationType='slide'>
-                <View>
-                    <MaterialIcons style={{ ...styles.modalToggle, ...styles.modalClose }} name='close' size={24} onPress={() => setModalOpen(false)} />
-                    <Text>Hello from the modal 🤑</Text>
-                </View>
+                <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
+                    <View style={styles.modalContent}>
+                        <MaterialIcons style={{ ...styles.modalToggle, ...styles.modalClose }} name='close' size={24} onPress={() => setModalOpen(false)} />
+                        <ReviewForm addReview={addReview} />
+                    </View>
+                </TouchableWithoutFeedback>
             </Modal>
 
             <FlatList
@@ -50,6 +60,9 @@ const styles = StyleSheet.create({
     modalClose: {
         marginTop: 20,
         marginBottom: 0
+    },
+    modalContent: {
+        flex: 1,
     }
 })
 
