@@ -11,10 +11,9 @@ const Details = ({ navigation, route }) => {
     return (
         <View style={globalStyles.container}>
             <Card>
-                <Text>{ title }</Text>
-                <Text>{ body }</Text>
+                <Text style={globalStyles.title}>{ title }</Text>
+                <Text style={globalStyles.paragraph}>{ body }</Text>
                 <View style={styles.rating}>
-                    <Text>Gazomby rating: </Text>
                     <Image source={images.ratings[rating]} />
                 </View>
             </Card>

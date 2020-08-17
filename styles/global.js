@@ -10,6 +10,11 @@ export const globalStyles = StyleSheet.create({
         fontSize: 18,
         color: '#333'
     },
+    title: {
+        fontSize: 17,
+        fontWeight: 'bold',
+        color: '#3E5858'
+    },
     paragraph: {
         fontSize: 15,
         marginVertical: 7,
